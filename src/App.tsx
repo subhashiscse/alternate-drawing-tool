@@ -16,7 +16,7 @@ import {
   Tools,
   ActionsType,
 } from "./types";
-import { ActionBar, ControlPanel, Info } from "./components";
+import { ActionBar, ControlPanel, Info,PanelBar } from "./components";
 import {
   adjustElementCoordinates,
   adjustmentRequired,
@@ -26,6 +26,7 @@ import {
   getElementAtPosition,
   resizedCoordinates,
 } from "./utilities";
+import ColorPicker from "./components/color-picker/color-picker";
 
 export default function App() {
   const initialTool: ToolsType = Tools.selection;

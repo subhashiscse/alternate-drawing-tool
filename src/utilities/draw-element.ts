@@ -6,15 +6,18 @@ export const drawElement = (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   roughCanvas: any,
   context: CanvasRenderingContext2D,
-  element: ElementType
+  element: ElementType,
+  color: string = "blue"
 ) => {
+  context.fillStyle = color;
+  context.strokeStyle = color;
   switch (element.type) {
     case "line":
     case "rectangle":
-      roughCanvas.draw(element.roughElement);
+      roughCanvas.draw(element.roughElement,color);
       break;
     case "circle": {
-      roughCanvas.draw(element.roughElement);
+      roughCanvas.draw(element.roughElement, color);
       break;
     }
     case "pencil": {

@@ -4,6 +4,7 @@ import { LuPencil } from "react-icons/lu";
 import { FiMinus, FiMousePointer, FiSquare, FiCircle } from "react-icons/fi";
 import { IoHandRightOutline, IoText } from "react-icons/io5";
 import "./action-bar-style.css";
+import ColorPicker from "../color-picker/color-picker";
 
 type ActionBarProps = {
   tool: ToolsType;
@@ -13,6 +14,7 @@ type ActionBarProps = {
 export function ActionBar({ tool, setTool }: ActionBarProps) {
   return (
     <div className="actionBar">
+      <ColorPicker/>
       {Object.values(Tools).map((t, index) => (
         <div
           className={`inputWrapper ${tool === t ? "selected" : ""}`}
@@ -34,7 +36,6 @@ export function ActionBar({ tool, setTool }: ActionBarProps) {
           {t === "line" && <FiMinus />}
           {t === "pencil" && <LuPencil />}
           {t === "text" && <IoText />}
-          <span>{index + 1}</span>
         </div>
       ))}
     </div>

@@ -1,5 +1,5 @@
-.actionBar {
-  top: 20px;
+.panelBar {
+  top: 100px;
   z-index: 2;
   padding: 10px;
   position: fixed;

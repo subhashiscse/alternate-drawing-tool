@@ -25,6 +25,7 @@ export type ElementType = {
   position?: string | null;
   points?: { x: number; y: number }[];
   text?: string;
+  color?: string;
 };
 
 export type ActionsType =
@@ -44,7 +45,19 @@ export const Tools = {
   pencil: "pencil",
   text: "text",
 };
+export const PanelTools = {
+  circle: "circle"
+};
 
 export type ToolsType = (typeof Tools)[keyof typeof Tools];
+export type PanelToolsType = (typeof PanelTools)[keyof typeof PanelTools];
 
 export type PointType = { x: number; y: number };
+export type UIAppState = Omit<
+  any,
+  | "suggestedBindings"
+  | "startBoundElement"
+  | "cursorButton"
+  | "scrollX"
+  | "scrollY"
+>;

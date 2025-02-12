@@ -7,23 +7,29 @@ export const createElement = (
   y1: number,
   x2: number,
   y2: number,
-  type: ToolsType
+  type: ToolsType,
+  color: string = "blue"
 ): ElementType => {
   const generator = rough.generator();
-
+  const colorDetails  = {
+    stroke: color,
+    fill: color,
+    fillStyle: "solid"
+  }
   switch (type) {
     case Tools.line:
     case Tools.rectangle: {
       const roughElement =
         type === Tools.line
-          ? generator.line(x1, y1, x2, y2)
-          : generator.rectangle(x1, y1, x2 - x1, y2 - y1);
-      return { id, x1, y1, x2, y2, type, roughElement };
+          ? generator.line(x1, y1, x2, y2, colorDetails)
+          : generator.rectangle(x1, y1, x2 - x1, y2 - y1, colorDetails);
+      return { id, x1, y1, x2, y2, type, roughElement,color};
     }
     case Tools.circle: {
       const radius = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
-      const roughElement = generator.circle(x1, y1, radius * 2);
-      return { id, x1, y1, x2, y2, type, roughElement };
+      const roughElement = generator.circle(x1, y1, radius * 2, colorDetails);
+      return { id, x1, y1, x2, y2, type, roughElement, color};
+      
     }
     case Tools.pencil: {
       const defaultRoughElement = null;
